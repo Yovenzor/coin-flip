@@ -1,0 +1,100 @@
+body {
+    font-family: 'Arial', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    perspective: 1500px;
+}
+.container {
+    text-align: center;
+}
+.coin-container {
+    width: 200px;
+    height: 200px;
+    position: relative;
+    margin: 50px auto;
+    transform-style: preserve-3d;
+    cursor: pointer;
+}
+.coin {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    transform-style: preserve-3d;
+    transition: transform 0.1s;
+}
+.side {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 80px;
+    border-radius: 50%;
+    background: linear-gradient(45deg, #d4af37, #f2d05c);
+    box-shadow: 0 0 20px rgba(0,0,0,0.2);
+}
+.heads {
+    transform: rotateY(0deg);
+}
+.tails {
+    transform: rotateY(180deg);
+}
+.edge {
+    position: absolute;
+    width: 200px;
+    height: 10px;
+    background: linear-gradient(to right, #b8860b, #ffd700, #b8860b);
+    transform: rotateX(90deg) translateZ(-5px);
+    border-radius: 50%;
+}
+@keyframes flip {
+    0% { transform: rotateX(0) rotateY(0) rotateZ(0); }
+    100% { transform: rotateX(1080deg) rotateY(1800deg) rotateZ(720deg); }
+}
+#result {
+    margin-top: 20px;
+    font-size: 24px;
+    font-weight: bold;
+    color: white;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+}
+.flip-button {
+    font-size: 17px;
+    font-weight: bold;
+    border: none;
+    cursor: pointer;
+    border-radius: 0.75em;
+    background: black;
+}
+
+.button_top {
+    display: block;
+    box-sizing: border-box;
+    border: 2px solid black;
+    border-radius: 0.75em;
+    padding: 0.75em 1.5em;
+    background: #e8e8e8;
+    color: black;
+    transform: translateY(-0.2em);
+    transition: 0.4s all ease;
+}
+
+.flip-button:hover {
+    transform: translateY(-0.33em);
+    transition: 0.3s all ease-in-out;
+}
+
+.flip-button:active {
+    transform: translateY(0);
+}
+
+.flip-button:disabled {
+    background-color: black;
+    cursor: not-allowed;
+}
